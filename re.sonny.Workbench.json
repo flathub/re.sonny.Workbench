@@ -8,7 +8,9 @@
     "--share=ipc",
     "--socket=fallback-x11",
     "--socket=wayland",
-    "--device=dri"
+    "--device=dri",
+    "--socket=session-bus",
+    "--share=network"
   ],
   "modules": [
     {
@@ -25,7 +27,7 @@
         {
           "type": "git",
           "url": "https://gitlab.gnome.org/GNOME/vte.git",
-          "commit": "f4b915aea367d407f8ac527e1aed9425b8cea9e2"
+          "commit": "4628822dbc45be6444fb11719bc955a630f5fbb1"
         }
       ]
     },
@@ -48,8 +50,8 @@
         {
           "type": "git",
           "url": "https://github.com/sonnyp/Workbench.git",
-          "tag": "v1.1.0",
-          "commit": "1bcf99469b40df9f908e2767ee54b5a1df7f8966"
+          "tag": "v1.2.0",
+          "commit": "643de1c403163c1a4302e206f91ef39e10f5f377"
         }
       ]
     }
