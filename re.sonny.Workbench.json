@@ -1,6 +1,6 @@
 {
   "app-id": "re.sonny.Workbench",
-  "runtime": "org.gnome.Platform",
+  "runtime": "org.gnome.Sdk",
   "runtime-version": "42",
   "sdk": "org.gnome.Sdk",
   "command": "workbench",
@@ -27,7 +27,7 @@
         {
           "type": "git",
           "url": "https://gitlab.gnome.org/GNOME/vte.git",
-          "commit": "4628822dbc45be6444fb11719bc955a630f5fbb1"
+          "commit": "b51feeca889d4b597e95b21bc77dc078892af11d"
         }
       ]
     },
@@ -44,14 +44,25 @@
       ]
     },
     {
+      "name": "blueprint-compiler",
+      "buildsystem": "meson",
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://gitlab.gnome.org/sonny/blueprint-compiler",
+          "commit": "5dc942e5bb4fca1d2eb49ae64b16c026b987c843"
+        }
+      ]
+    },
+    {
       "name": "Workbench",
       "buildsystem": "meson",
       "sources": [
         {
           "type": "git",
           "url": "https://github.com/sonnyp/Workbench.git",
-          "tag": "v1.2.0",
-          "commit": "b2e7fe5a601678c915183760d4d91ff052ef664b"
+          "tag": "v42.0",
+          "commit": "b86cdfb3e6440e4e034fcb6c609ff84401630faa"
         }
       ]
     }
