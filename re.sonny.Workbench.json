@@ -44,12 +44,13 @@
       ]
     },
     {
-      "name": "blueprint",
+      "name": "blueprint-compiler",
       "buildsystem": "meson",
       "sources": [
         {
-          "type": "dir",
-          "path": "./blueprint-compiler"
+          "type": "git",
+          "url": "https://gitlab.gnome.org/sonnyp/blueprint-compiler",
+          "commit": "5dc942e5bb4fca1d2eb49ae64b16c026b987c843"
         }
       ]
     },
