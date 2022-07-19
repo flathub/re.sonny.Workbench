@@ -50,7 +50,7 @@
         {
           "type": "git",
           "url": "https://gitlab.gnome.org/sonny/blueprint-compiler",
-          "commit": "3c268b868ed3c6a5a12ddcdb1d42e6ac8e65912a"
+          "commit": "8bb32030739f7fe6cdd0f5bba2b6807292868255"
         }
       ]
     },
@@ -61,8 +61,8 @@
         {
           "type": "git",
           "url": "https://github.com/sonnyp/Workbench.git",
-          "tag": "v42.1",
-          "commit": "875b14dfeab14eb4644eb55e50bb9f206c4f84b3"
+          "tag": "v42.2",
+          "commit": "5b57afabb4e1e0f948a22e2be2adb0a1e89d8240"
         }
       ]
     }
