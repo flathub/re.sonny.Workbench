@@ -3,6 +3,7 @@
   "runtime": "org.gnome.Sdk",
   "runtime-version": "43",
   "sdk": "org.gnome.Sdk",
+  "sdk-extensions": ["org.freedesktop.Sdk.Extension.vala"],
   "command": "workbench",
   "finish-args": [
     "--share=ipc",
@@ -27,8 +28,8 @@
         {
           "type": "git",
           "url": "https://gitlab.gnome.org/GNOME/vte.git",
-          "commit": "ae4a5d7df9e32ab40ceca5e06240561e819db148",
-          "tag": "0.70.0"
+          "commit": "5bf476f1d7283bc805ac8ae6abe94f81ffd7be05",
+          "tag": "0.70.1"
         }
       ]
     },
@@ -60,12 +61,13 @@
       "name": "Workbench",
       "buildsystem": "meson",
       "builddir": true,
+      "config-opts": ["-Dprofile=default"],
       "sources": [
         {
           "type": "git",
           "url": "https://github.com/sonnyp/Workbench.git",
-          "tag": "v43.0",
-          "commit": "dff12cab700f452601b23e4cafbbb4c24d610946"
+          "tag": "v43.1",
+          "commit": "f0c5e3fcd382eb04c7a35eece7ce16fdb5d62e6c"
         }
       ]
     }
