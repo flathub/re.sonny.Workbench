@@ -1,141 +1,147 @@
 {
-  "id": "re.sonny.Workbench",
-  "runtime": "org.gnome.Sdk",
-  "runtime-version": "43",
-  "sdk": "org.gnome.Sdk",
-  "command": "workbench",
-  "finish-args": [
-    "--share=ipc",
-    "--socket=fallback-x11",
-    "--socket=wayland",
-    "--device=dri",
-    "--socket=session-bus",
-    "--share=network"
-  ],
-  "modules": [
-    {
-      "name": "vte",
-      "buildsystem": "meson",
-      "config-opts": [
-        "-Ddocs=false",
-        "-Dgtk3=false",
-        "-Dgtk4=true",
-        "-Dvapi=false",
-        "-Dglade=false"
-      ],
-      "sources": [
+    "id": "re.sonny.Workbench",
+    "runtime": "org.gnome.Sdk",
+    "runtime-version": "43",
+    "sdk": "org.gnome.Sdk",
+    "command": "workbench",
+    "finish-args": [
+        "--share=ipc",
+        "--socket=fallback-x11",
+        "--socket=wayland",
+        "--device=dri",
+        "--socket=session-bus",
+        "--share=network"
+    ],
+    "modules": [
         {
-          "type": "git",
-          "url": "https://gitlab.gnome.org/GNOME/vte.git",
-          "commit": "5bf476f1d7283bc805ac8ae6abe94f81ffd7be05",
-          "tag": "0.70.1"
-        }
-      ]
-    },
-    {
-      "name": "libportal",
-      "buildsystem": "meson",
-      "config-opts": ["-Ddocs=false", "-Dvapi=false", "-Dbackends=gtk4"],
-      "sources": [
-        {
-          "type": "archive",
-          "url": "https://github.com/flatpak/libportal/releases/download/0.6/libportal-0.6.tar.xz",
-          "sha256": "88a12c3ba71bc31acff7238c280de697d609cebc50830c3766776ec35abc6566"
-        }
-      ]
-    },
-    {
-      "name": "blueprint-compiler",
-      "buildsystem": "meson",
-      "builddir": true,
-      "sources": [
-        {
-          "type": "git",
-          "url": "https://gitlab.gnome.org/sonny/blueprint-compiler",
-          "commit": "592ed7acab26f1633c03b0cd703a9cf2b7f09cb9"
-        }
-      ]
-    },
-    {
-      "name": "vls",
-      "buildsystem": "meson",
-      "sources": [
-        {
-          "type": "git",
-          "url": "https://github.com/vala-lang/vala-language-server/",
-          "branch": "master",
-          "commit": "bf978c0cda97cff946f355477ec8da08b1cb4e5e"
-        }
-      ],
-      "modules": [
-        {
-          "name": "jsonrpc",
-          "buildsystem": "meson",
-          "sources": [
-            {
-              "type": "archive",
-              "url": "https://download.gnome.org/sources/jsonrpc-glib/3.42/jsonrpc-glib-3.42.0.tar.xz",
-              "sha256": "221989a57ca82a12467dc427822cd7651b0cad038140c931027bf1074208276b",
-              "x-checker-data": {
-                "type": "gnome",
-                "name": "jsonrpc-glib",
-                "stable-only": true
-              }
-            }
-          ],
-          "cleanup": [
-            "/include",
-            "*.pc",
-            "*.gir",
-            "*.typelib"
-          ]
+            "name": "vte",
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Ddocs=false",
+                "-Dgtk3=false",
+                "-Dgtk4=true",
+                "-Dvapi=false",
+                "-Dglade=false"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/GNOME/vte.git",
+                    "commit": "5bf476f1d7283bc805ac8ae6abe94f81ffd7be05",
+                    "tag": "0.70.1"
+                }
+            ]
         },
         {
-          "name": "gee",
-          "buildsystem": "autotools",
-          "sources": [
-            {
-              "type": "archive",
-              "url": "https://download.gnome.org/sources/libgee/0.20/libgee-0.20.5.tar.xz",
-              "sha256": "31863a8957d5a727f9067495cabf0a0889fa5d3d44626e54094331188d5c1518",
-              "x-checker-data": {
-                "type": "gnome",
-                "name": "libgee",
-                "stable-only": true
-              }
-            }
-          ]
+            "name": "libportal",
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Ddocs=false",
+                "-Dvapi=false",
+                "-Dbackends=gtk4"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/flatpak/libportal/releases/download/0.6/libportal-0.6.tar.xz",
+                    "sha256": "88a12c3ba71bc31acff7238c280de697d609cebc50830c3766776ec35abc6566"
+                }
+            ]
         },
         {
-          "name": "uncrustify",
-          "buildsystem": "cmake-ninja",
-          "config-opts": [
-            "-DCMAKE_BUILD_TYPE=Release"
-          ],
-          "builddir": true,
-          "sources": [
-            {
-              "type": "archive",
-              "url": "https://github.com/uncrustify/uncrustify/archive/uncrustify-0.75.1.tar.gz",
-              "sha256": "fd14acc0a31ed88b33137bdc26d32964327488c835f885696473ef07caf2e182"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Workbench",
-      "buildsystem": "meson",
-      "builddir": true,
-      "config-opts": ["-Dprofile=default"],
-      "sources": [
+            "name": "blueprint-compiler",
+            "buildsystem": "meson",
+            "builddir": true,
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/sonny/blueprint-compiler",
+                    "commit": "592ed7acab26f1633c03b0cd703a9cf2b7f09cb9"
+                }
+            ]
+        },
         {
-          "type": "git",
-          "url": "https://github.com/sonnyp/Workbench.git",
-          "tag": "v43.2",
-          "commit": "a02f8742f9365708e14039bc31cc9c07e2830c5c"
+            "name": "vls",
+            "buildsystem": "meson",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/vala-lang/vala-language-server/",
+                    "branch": "master",
+                    "commit": "7577ffb269cd31da8815b7eadd72867965a2c742"
+                }
+            ],
+            "modules": [
+                {
+                    "name": "jsonrpc",
+                    "buildsystem": "meson",
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://download.gnome.org/sources/jsonrpc-glib/3.42/jsonrpc-glib-3.42.0.tar.xz",
+                            "sha256": "221989a57ca82a12467dc427822cd7651b0cad038140c931027bf1074208276b",
+                            "x-checker-data": {
+                                "type": "gnome",
+                                "name": "jsonrpc-glib",
+                                "stable-only": true
+                            }
+                        }
+                    ],
+                    "cleanup": [
+                        "/include",
+                        "*.pc",
+                        "*.gir",
+                        "*.typelib"
+                    ]
+                },
+                {
+                    "name": "gee",
+                    "buildsystem": "autotools",
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://download.gnome.org/sources/libgee/0.20/libgee-0.20.6.tar.xz",
+                            "sha256": "1bf834f5e10d60cc6124d74ed3c1dd38da646787fbf7872220b8b4068e476d4d",
+                            "x-checker-data": {
+                                "type": "gnome",
+                                "name": "libgee",
+                                "stable-only": true
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "uncrustify",
+                    "buildsystem": "cmake-ninja",
+                    "config-opts": [
+                        "-DCMAKE_BUILD_TYPE=Release"
+                    ],
+                    "builddir": true,
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://github.com/uncrustify/uncrustify/archive/uncrustify-0.75.1.tar.gz",
+                            "sha256": "fd14acc0a31ed88b33137bdc26d32964327488c835f885696473ef07caf2e182"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Workbench",
+            "buildsystem": "meson",
+            "builddir": true,
+            "config-opts": [
+                "-Dprofile=default"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/sonnyp/Workbench.git",
+                    "tag": "v43.2",
+                    "commit": "a02f8742f9365708e14039bc31cc9c07e2830c5c"
+                }
+            ]
         }
-      ]
-    }
-  ]
+    ]
 }
