@@ -1,58 +1,79 @@
 {
-  "app-id": "re.sonny.Workbench",
-  "runtime": "org.gnome.Platform",
-  "runtime-version": "42",
+  "id": "re.sonny.Workbench",
+  "runtime": "org.gnome.Sdk",
+  "runtime-version": "45beta",
   "sdk": "org.gnome.Sdk",
+  "sdk-extensions": [
+    "org.freedesktop.Sdk.Extension.vala",
+    "org.gnome.Sdk.Docs",
+    "org.freedesktop.Sdk.Extension.rust-stable",
+    "org.freedesktop.Sdk.Extension.llvm16"
+  ],
+  "build-options": {
+    "append-path": "/usr/lib/sdk/rust-stable/bin:/usr/lib/sdk/vala/bin",
+    "append-ld-library-path": "/usr/lib/sdk/vala/lib",
+    "test-args": ["--socket=x11", "--share=network"]
+  },
   "command": "workbench",
   "finish-args": [
     "--share=ipc",
     "--socket=fallback-x11",
     "--socket=wayland",
     "--device=dri",
-    "--socket=session-bus",
-    "--share=network"
+    "--share=network",
+    "--env=CARGO_TARGET_X86_64_UNKNOWN_LINUX_GNU_LINKER=clang",
+    "--env=CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER=clang",
+    "--env=CARGO_TARGET_X86_64_UNKNOWN_LINUX_GNU_RUSTFLAGS=-C link-arg=-fuse-ld=/app/bin/mold",
+    "--env=CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_RUSTFLAGS=-C link-arg=-fuse-ld=/app/bin/mold"
+  ],
+  "cleanup": [
+    "/include",
+    "/lib/pkgconfig",
+    "/man",
+    "/share/doc",
+    "/share/gtk-doc",
+    "/share/man",
+    "/share/pkgconfig",
+    "/share/installed-tests",
+    "*.la",
+    "*.a"
   ],
   "modules": [
-    {
-      "name": "vte",
-      "buildsystem": "meson",
-      "config-opts": [
-        "-Ddocs=false",
-        "-Dgtk3=false",
-        "-Dgtk4=true",
-        "-Dvapi=false",
-        "-Dglade=false"
-      ],
-      "sources": [
-        {
-          "type": "git",
-          "url": "https://gitlab.gnome.org/GNOME/vte.git",
-          "commit": "4628822dbc45be6444fb11719bc955a630f5fbb1"
-        }
-      ]
-    },
-    {
-      "name": "libportal",
-      "buildsystem": "meson",
-      "config-opts": ["-Ddocs=false", "-Dvapi=false", "-Dbackends=gtk4"],
-      "sources": [
-        {
-          "type": "archive",
-          "url": "https://github.com/flatpak/libportal/releases/download/0.6/libportal-0.6.tar.xz",
-          "sha256": "88a12c3ba71bc31acff7238c280de697d609cebc50830c3766776ec35abc6566"
-        }
-      ]
-    },
+    "modules/cargo-c.json",
+    "modules/gst-plugin-gtk4.json",
+    "modules/gi-docgen.json",
+    "modules/vte.json",
+    "modules/libshumate.json",
+    "modules/libportal.json",
+    "modules/libspelling.json",
+    "modules/GTKCssLanguageServer.json",
+    "modules/blueprint-compiler.json",
+    "modules/biome.json",
+    "modules/icon-development-kit.json",
     {
       "name": "Workbench",
       "buildsystem": "meson",
+      "builddir": true,
+      "config-opts": ["-Dprofile=default"],
       "sources": [
         {
           "type": "git",
           "url": "https://github.com/sonnyp/Workbench.git",
-          "tag": "v1.2.0",
-          "commit": "b2e7fe5a601678c915183760d4d91ff052ef664b"
+          "tag": "v45.0",
+          "commit": "e5ba6a37d74c0e724aeb10ce172c08ba75a240eb"
         }
+      ],
+      "post-install": [
+        "rm -rf /app/share/doc/appstream",
+        "cp -a /usr/share/gtk-doc/html/. /app/share/doc/",
+        "rm -rf /app/share/doc/appstream",
+        "cp -a /usr/share/doc/. /app/share/doc/",
+        "cp -a /usr/lib/sdk/vala/bin/. /app/bin/",
+        "cp -a /usr/lib/sdk/vala/lib/. /app/lib/",
+        "cp -a /usr/lib/sdk/rust-stable/bin/. /app/bin/",
+        "cp -a /usr/lib/sdk/rust-stable/lib/. /app/lib/",
+        "cp -a /usr/lib/sdk/llvm16/bin/. /app/bin/",
+        "cp -a /usr/lib/sdk/llvm16/lib/. /app/lib/"
       ]
     }
   ]
