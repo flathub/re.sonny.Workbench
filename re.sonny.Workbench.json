@@ -1,7 +1,7 @@
 {
   "id": "re.sonny.Workbench",
   "runtime": "org.gnome.Sdk",
-  "runtime-version": "45beta",
+  "runtime-version": "45",
   "sdk": "org.gnome.Sdk",
   "sdk-extensions": [
     "org.gnome.Sdk.Docs",
@@ -19,18 +19,6 @@
     "--socket=wayland",
     "--device=dri",
     "--share=network"
-  ],
-  "cleanup": [
-    "/include",
-    "/lib/pkgconfig",
-    "/man",
-    "#/share/doc",
-    "/share/gtk-doc",
-    "/share/man",
-    "/share/pkgconfig",
-    "/share/installed-tests",
-    "*.la",
-    "*.a"
   ],
   "modules": [
     "modules/cargo-c.json",
@@ -53,7 +41,7 @@
         {
           "type": "git",
           "url": "https://github.com/sonnyp/Workbench.git",
-          "commit": "a67091b621b41004d532694f91d219544dc7dd01"
+          "commit": "df3f0344f15c3751529700a46f2f8a0bd5b815e3"
         }
       ],
       "post-install": [
@@ -62,7 +50,8 @@
         "cp -a /usr/lib/sdk/vala/lib/. /app/lib/",
         "#cp -a /usr/lib/sdk/vala/share/. /app/share/",
         "cp -a /usr/lib/sdk/rust-stable/bin/. /app/bin/",
-        "cp -a /usr/lib/sdk/rust-stable/lib/. /app/lib/"
+        "cp -a /usr/lib/sdk/rust-stable/lib/. /app/lib/",
+        "cp -a /usr/lib/sdk/rust-stable/libexec/. /app/libexec/"
       ]
     }
   ]
