@@ -1,7 +1,7 @@
 {
   "id": "re.sonny.Workbench",
   "runtime": "org.gnome.Sdk",
-  "runtime-version": "45beta",
+  "runtime-version": "45",
   "sdk": "org.gnome.Sdk",
   "sdk-extensions": [
     "org.gnome.Sdk.Docs",
@@ -9,6 +9,8 @@
     "org.freedesktop.Sdk.Extension.rust-stable"
   ],
   "build-options": {
+    "strip": false,
+    "no-debuginfo": true,
     "append-path": "/usr/lib/sdk/vala/bin:/usr/lib/sdk/rust-stable/bin",
     "append-ld-library-path": "/usr/lib/sdk/vala/lib"
   },
@@ -33,7 +35,6 @@
     "*.a"
   ],
   "modules": [
-    "modules/cargo-c.json",
     "modules/gst-plugin-gtk4.json",
     "modules/gi-docgen.json",
     "modules/vte.json",
@@ -53,7 +54,7 @@
         {
           "type": "git",
           "url": "https://github.com/sonnyp/Workbench.git",
-          "commit": "a67091b621b41004d532694f91d219544dc7dd01"
+          "commit": "d495809d53e2ae8b73358b6e08de6dd640b90b64"
         }
       ],
       "post-install": [
