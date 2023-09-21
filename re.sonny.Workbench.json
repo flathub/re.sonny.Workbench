@@ -54,7 +54,8 @@
         {
           "type": "git",
           "url": "https://github.com/sonnyp/Workbench.git",
-          "commit": "d495809d53e2ae8b73358b6e08de6dd640b90b64"
+          "commit": "d495809d53e2ae8b73358b6e08de6dd640b90b64",
+          "tag": "v45.0"
         }
       ],
       "post-install": [
