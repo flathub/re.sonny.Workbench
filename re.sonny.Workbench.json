@@ -44,6 +44,7 @@
     "modules/blueprint-compiler.json",
     "modules/biome.json",
     "modules/icon-development-kit.json",
+    "modules/rust.json",
     {
       "name": "Workbench",
       "buildsystem": "meson",
@@ -60,9 +61,7 @@
         "cp -a /usr/share/runtime/docs/doc/. /app/share/doc/",
         "cp -a /usr/lib/sdk/vala/bin/. /app/bin/",
         "cp -a /usr/lib/sdk/vala/lib/. /app/lib/",
-        "#cp -a /usr/lib/sdk/vala/share/. /app/share/",
-        "cp -a /usr/lib/sdk/rust-stable/bin/. /app/bin/",
-        "cp -a /usr/lib/sdk/rust-stable/lib/. /app/lib/"
+        "#cp -a /usr/lib/sdk/vala/share/. /app/share/"
       ]
     }
   ]

@@ -1,0 +1,52 @@
+{
+    "name": "rust",
+    "buildsystem": "simple",
+    "sources": [
+      {
+        "type": "archive",
+        "only-arches": [
+          "aarch64"
+        ],
+        "dest": "rust-aarch64-unknown-linux-musl",
+        "url": "https://static.rust-lang.org/dist/2023-09-19/rust-1.72.1-aarch64-unknown-linux-musl.tar.xz",
+        "sha256": "40c905d1093d464857f05d37e4ccdfa059baaee9bc5295882f0148c7725633b8",
+        "x-checker-data": {
+          "type": "rust",
+          "package": "rust",
+          "target": "aarch64-unknown-linux-musl"
+        }
+      },
+      {
+        "type": "archive",
+        "only-arches": [
+          "x86_64"
+        ],
+        "dest": "rust-x86_64-unknown-linux-musl",
+        "url": "https://static.rust-lang.org/dist/2023-09-19/rust-1.72.1-x86_64-unknown-linux-musl.tar.xz",
+        "sha256": "9a2d348688ca524917dd71f30d9372a8f198712efd23f25bd34e94eebf960ea0",
+        "x-checker-data": {
+          "type": "rust",
+          "package": "rust",
+          "target": "x86_64-unknown-linux-musl",
+          "is-main-source": true
+        }
+      }
+    ],
+    "build-options": {
+      "arch": {
+        "x86_64": {
+          "env": {
+            "NATIVE_TARGET": "x86_64-unknown-linux-musl"
+          }
+        },
+        "aarch64": {
+          "env": {
+            "NATIVE_TARGET": "aarch64-unknown-linux-musl"
+          }
+        }
+      }
+    },
+    "build-commands": [
+      "cd \"rust-$NATIVE_TARGET\" && ./install.sh --prefix=/app --without=rust-docs --without=rust-docs-json-preview --disable-ldconfig --verbose"
+    ]
+  }
