@@ -4,7 +4,6 @@
   "runtime-version": "45",
   "sdk": "org.gnome.Sdk",
   "sdk-extensions": [
-    "org.gnome.Sdk.Docs",
     "org.freedesktop.Sdk.Extension.vala",
     "org.freedesktop.Sdk.Extension.rust-stable",
     "org.freedesktop.Sdk.Extension.llvm16"
@@ -26,7 +25,7 @@
     "/include",
     "#/lib/pkgconfig",
     "/man",
-    "#/share/doc",
+    "/share/doc",
     "/share/gtk-doc",
     "/share/man",
     "#/share/pkgconfig",
@@ -35,15 +34,15 @@
     "*.a"
   ],
   "modules": [
+    "modules/python-black.json",
+    "modules/blueprint-compiler.json",
+    "modules/biome.json",
     "modules/gst-plugin-gtk4.json",
-    "modules/gi-docgen.json",
     "modules/vte.json",
     "modules/libshumate.json",
     "modules/libportal.json",
     "modules/libspelling.json",
     "modules/GTKCssLanguageServer.json",
-    "modules/blueprint-compiler.json",
-    "modules/biome.json",
     "modules/icon-development-kit.json",
     {
       "name": "Workbench",
@@ -53,8 +52,8 @@
         {
           "type": "git",
           "url": "https://github.com/sonnyp/Workbench.git",
-          "commit": "2e24ba6954f5a27ebe71e67e62b974719b7fc0ab",
-          "tag": "v45.2"
+          "commit": "66977e62b3f58f5ac0579f91684039544d95efc6",
+          "tag": "v45.3"
         }
       ]
     }
