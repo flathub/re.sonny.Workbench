@@ -19,7 +19,8 @@
     "--socket=wayland",
     "--device=dri",
     "--share=network",
-    "--socket=pulseaudio"
+    "--socket=pulseaudio",
+    "--talk-name=org.gtk.vfs.*"
   ],
   "cleanup": [
     "/include",
