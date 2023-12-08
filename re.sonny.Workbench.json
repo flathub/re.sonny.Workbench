@@ -53,8 +53,10 @@
       "config-opts": ["-Dprofile=default"],
       "sources": [
         {
-          "type": "dir",
-          "path": ".."
+          "type": "git",
+          "url": "https://github.com/sonnyp/Workbench.git",
+          "commit": "66977e62b3f58f5ac0579f91684039544d95efc6",
+          "tag": "v45.3"
         }
       ]
     }
