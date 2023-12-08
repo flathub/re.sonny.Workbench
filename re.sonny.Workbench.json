@@ -19,7 +19,9 @@
     "--socket=wayland",
     "--device=dri",
     "--share=network",
-    "--socket=pulseaudio"
+    "--socket=pulseaudio",
+    "--talk-name=org.gtk.vfs.*",
+    "--filesystem=xdg-run/gvfsd"
   ],
   "cleanup": [
     "/include",
@@ -44,16 +46,15 @@
     "modules/libspelling.json",
     "modules/GTKCssLanguageServer.json",
     "modules/icon-development-kit.json",
+    "modules/webp-pixbuf-loader.json",
     {
       "name": "Workbench",
       "buildsystem": "meson",
       "config-opts": ["-Dprofile=default"],
       "sources": [
         {
-          "type": "git",
-          "url": "https://github.com/sonnyp/Workbench.git",
-          "commit": "66977e62b3f58f5ac0579f91684039544d95efc6",
-          "tag": "v45.3"
+          "type": "dir",
+          "path": ".."
         }
       ]
     }
