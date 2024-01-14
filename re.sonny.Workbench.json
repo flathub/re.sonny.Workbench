@@ -44,6 +44,7 @@
     "modules/libspelling.json",
     "modules/GTKCssLanguageServer.json",
     "modules/icon-development-kit.json",
+    "modules/webp-pixbuf-loader.json",
     {
       "name": "Workbench",
       "buildsystem": "meson",
@@ -52,8 +53,8 @@
         {
           "type": "git",
           "url": "https://github.com/sonnyp/Workbench.git",
-          "commit": "66977e62b3f58f5ac0579f91684039544d95efc6",
-          "tag": "v45.3"
+          "commit": "fbef5965147ab1f8162a774016ae3d44d66e6e29",
+          "tag": "v45.4"
         }
       ]
     }
