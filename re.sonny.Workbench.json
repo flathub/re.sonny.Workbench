@@ -1,7 +1,7 @@
 {
   "id": "re.sonny.Workbench",
   "runtime": "org.gnome.Sdk",
-  "runtime-version": "45",
+  "runtime-version": "46",
   "sdk": "org.gnome.Sdk",
   "sdk-extensions": [
     "org.freedesktop.Sdk.Extension.vala",
@@ -13,6 +13,7 @@
     "append-ld-library-path": "/usr/lib/sdk/vala/lib"
   },
   "command": "workbench",
+  "separate-locales": false,
   "finish-args": [
     "--share=ipc",
     "--socket=fallback-x11",
@@ -22,7 +23,7 @@
     "--socket=pulseaudio"
   ],
   "cleanup": [
-    "/include",
+    "#/include",
     "#/lib/pkgconfig",
     "/man",
     "/share/doc",
@@ -34,7 +35,6 @@
     "*.a"
   ],
   "modules": [
-    "modules/python-black.json",
     "modules/blueprint-compiler.json",
     "modules/biome.json",
     "modules/gst-plugin-gtk4.json",
@@ -44,7 +44,9 @@
     "modules/libspelling.json",
     "modules/GTKCssLanguageServer.json",
     "modules/icon-development-kit.json",
-    "modules/webp-pixbuf-loader.json",
+    "modules/python-python-lsp-server.json",
+    "modules/python-ruff.json",
+    "modules/python-python-lsp-ruff.json",
     {
       "name": "Workbench",
       "buildsystem": "meson",
@@ -53,8 +55,8 @@
         {
           "type": "git",
           "url": "https://github.com/sonnyp/Workbench.git",
-          "commit": "a922d93cbd4fe1c8d205ac580613897fa63dc9b2",
-          "tag": "v45.4"
+          "commit": "984cc2c13cfa9a36a02d779cea85f01124e1d659",
+          "tag": "v46.0"
         }
       ]
     }
