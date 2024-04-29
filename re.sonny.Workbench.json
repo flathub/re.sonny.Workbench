@@ -43,7 +43,6 @@
     "modules/libportal.json",
     "modules/libspelling.json",
     "modules/GTKCssLanguageServer.json",
-    "modules/icon-development-kit.json",
     "modules/python-python-lsp-server.json",
     "modules/python-ruff.json",
     "modules/python-python-lsp-ruff.json",
@@ -55,8 +54,8 @@
         {
           "type": "git",
           "url": "https://github.com/sonnyp/Workbench.git",
-          "commit": "984cc2c13cfa9a36a02d779cea85f01124e1d659",
-          "tag": "v46.0"
+          "commit": "b2dc1df6f3e860cfbaad7ff0263702f39d93342d",
+          "tag": "v46.1"
         }
       ]
     }
