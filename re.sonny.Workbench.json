@@ -1,15 +1,18 @@
 {
+  "$schema": "https://raw.githubusercontent.com/flatpak/flatpak-builder/main/data/flatpak-manifest.schema.json",
   "id": "re.sonny.Workbench",
   "runtime": "org.gnome.Sdk",
-  "runtime-version": "46",
+  "runtime-version": "47",
   "sdk": "org.gnome.Sdk",
   "sdk-extensions": [
     "org.freedesktop.Sdk.Extension.vala",
     "org.freedesktop.Sdk.Extension.rust-stable",
-    "org.freedesktop.Sdk.Extension.llvm16"
+    "org.freedesktop.Sdk.Extension.llvm18",
+    "org.freedesktop.Sdk.Extension.node20",
+    "org.freedesktop.Sdk.Extension.typescript"
   ],
   "build-options": {
-    "append-path": "/usr/lib/sdk/vala/bin:/usr/lib/sdk/rust-stable/bin",
+    "append-path": "/usr/lib/sdk/vala/bin:/usr/lib/sdk/rust-stable/bin:/usr/lib/sdk/node20/bin:/usr/lib/sdk/typescript/bin",
     "append-ld-library-path": "/usr/lib/sdk/vala/lib"
   },
   "command": "workbench",
@@ -18,9 +21,7 @@
     "--share=ipc",
     "--socket=fallback-x11",
     "--socket=wayland",
-    "--device=dri",
-    "--share=network",
-    "--socket=pulseaudio"
+    "--device=dri"
   ],
   "cleanup": [
     "#/include",
@@ -37,11 +38,11 @@
   "modules": [
     "modules/blueprint-compiler.json",
     "modules/biome.json",
-    "modules/gst-plugin-gtk4.json",
     "modules/vte.json",
     "modules/libshumate.json",
     "modules/libportal.json",
     "modules/libspelling.json",
+    "modules/gom.json",
     "modules/GTKCssLanguageServer.json",
     "modules/python-python-lsp-server.json",
     "modules/python-ruff.json",
@@ -54,8 +55,8 @@
         {
           "type": "git",
           "url": "https://github.com/sonnyp/Workbench.git",
-          "commit": "b2dc1df6f3e860cfbaad7ff0263702f39d93342d",
-          "tag": "v46.1"
+          "commit": "aa93296968f55ee7a3731abf8ff56d6f96b3dd66",
+          "tag": "v47.0"
         }
       ]
     }
