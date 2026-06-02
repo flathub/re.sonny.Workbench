@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/flatpak/flatpak-builder/main/data/flatpak-manifest.schema.json",
   "id": "re.sonny.Workbench",
   "runtime": "org.gnome.Sdk",
-  "runtime-version": "49",
+  "runtime-version": "50",
   "sdk": "org.gnome.Sdk",
   "sdk-extensions": [
     "org.freedesktop.Sdk.Extension.vala",
@@ -55,8 +55,8 @@
         {
           "type": "git",
           "url": "https://github.com/sonnyp/Workbench.git",
-          "commit": "aae11bed5a55853f35b1c2e62993534853c0178e",
-          "tag": "v49.0"
+          "commit": "63563e96982a4d1cd8b5e787a1953966b2f68831",
+          "tag": "v50.0"
         }
       ]
     }
