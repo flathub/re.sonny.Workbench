@@ -2,18 +2,18 @@
   "$schema": "https://raw.githubusercontent.com/flatpak/flatpak-builder/main/data/flatpak-manifest.schema.json",
   "id": "re.sonny.Workbench",
   "runtime": "org.gnome.Sdk",
-  "runtime-version": "50",
+  "runtime-version": "51",
   "sdk": "org.gnome.Sdk",
   "sdk-extensions": [
     "org.freedesktop.Sdk.Extension.vala",
     "org.freedesktop.Sdk.Extension.rust-stable",
-    "org.freedesktop.Sdk.Extension.llvm21",
-    "org.freedesktop.Sdk.Extension.node24",
+    "org.freedesktop.Sdk.Extension.llvm22",
+    "org.freedesktop.Sdk.Extension.node26",
     "org.freedesktop.Sdk.Extension.typescript"
   ],
   "build-options": {
-    "append-path": "/usr/lib/sdk/vala/bin:/usr/lib/sdk/rust-stable/bin:/usr/lib/sdk/llvm21/bin:/usr/lib/sdk/node24/bin:/usr/lib/sdk/typescript/bin",
-    "prepend-ld-library-path": "/usr/lib/sdk/llvm21/lib",
+    "append-path": "/usr/lib/sdk/vala/bin:/usr/lib/sdk/rust-stable/bin:/usr/lib/sdk/llvm22/bin:/usr/lib/sdk/node26/bin:/usr/lib/sdk/typescript/bin",
+    "prepend-ld-library-path": "/usr/lib/sdk/llvm22/lib",
     "append-ld-library-path": "/usr/lib/sdk/vala/lib"
   },
   "command": "workbench",
@@ -37,10 +37,10 @@
     "*.a"
   ],
   "modules": [
+    "modules/gtk.json",
     "modules/biome.json",
     "modules/vte.json",
     "modules/libshumate.json",
-    "modules/libportal.json",
     "modules/libspelling.json",
     "modules/gom.json",
     "modules/GTKCssLanguageServer.json",
@@ -55,8 +55,8 @@
         {
           "type": "git",
           "url": "https://github.com/sonnyp/Workbench.git",
-          "commit": "63563e96982a4d1cd8b5e787a1953966b2f68831",
-          "tag": "v50.0"
+          "commit": "f5832a0e651adba409f442ba5179a0fa7d7373cb",
+          "tag": "v51.0"
         }
       ]
     }
